@@ -35,5 +35,5 @@ var putComd = &cobra.Command{
 }
 
 func init() {
-	putComd.PersistentFlags().StringVarP(&endPoint, "endpoint", "e", "http://127.0.0.1", "etcd endpoint")
+	putComd.PersistentFlags().StringVarP(&endPoint, "endpoint", "e", "http://127.0.0.1:2379", "etcd endpoint")
 }
