@@ -1,27 +1,25 @@
 package cmd
 
 import (
-	"errors"
 	"fmt"
 	"github.com/gsxhnd/owl"
-	"github.com/spf13/cobra"
+	"github.com/urfave/cli/v2"
 	"log"
 )
 
-var getCmd = &cobra.Command{
-	Use:     "get",
-	Short:   "get",
-	Long:    "get",
-	Example: "get",
-	Args: func(cmd *cobra.Command, args []string) error {
-		if len(args) == 1 {
-			return nil
-		} else {
-			return errors.New("need one args")
-		}
+var getCmd = &cli.Command{
+	Name:  "get",
+	Usage: "get",
+	Flags: []cli.Flag{
+		&cli.StringFlag{
+			Name:        "endpoint,e",
+			Value:       "http://127.0.0.1:2379",
+			Usage:       "",
+			Destination: &endPoint,
+		},
 	},
-	RunE: func(cmd *cobra.Command, args []string) error {
-		var key = args[0]
+	Action: func(c *cli.Context) error {
+		var key = c.Args().Get(0)
 		owl.SetAddr([]string{endPoint})
 		owl.SetKey(key)
 
@@ -32,8 +30,4 @@ var getCmd = &cobra.Command{
 		fmt.Println("value: ", v)
 		return nil
 	},
-}
-
-func init() {
-	getCmd.PersistentFlags().StringVarP(&endPoint, "endpoint", "e", "http://127.0.0.1:2379", "etcd endpoint")
 }
