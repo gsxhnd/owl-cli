@@ -28,7 +28,7 @@ var versionCmd = &cli.Command{
 			fmt.Println("owl version: ", gitTag)
 		}
 		fmt.Println("owl commit: ", gitCommit)
-		fmt.Println("owl build date: ", gitTreeState)
+		fmt.Println("owl tree state: ", gitTreeState)
 		fmt.Println("owl build date: ", buildDate)
 		fmt.Println("go version: ", goVersion)
 		fmt.Println("go compiler: ", compiler)
