@@ -7,9 +7,9 @@
 
 ### Binary release
 ```
-wget https://github.com/gsxhnd/owl/releases/latest/download/owl-darwin-amd64
-wget https://github.com/gsxhnd/owl/releases/latest/download/owl-linux-amd64
-wget https://github.com/gsxhnd/owl/releases/latest/download/owl-windows-amd64.exe
+wget https://github.com/gsxhnd/owl-cli/releases/latest/download/owl-darwin-amd64
+wget https://github.com/gsxhnd/owl-cli/releases/latest/download/owl-linux-amd64
+wget https://github.com/gsxhnd/owl-cli/releases/latest/download/owl-windows-amd64.exe
 
 mv owl-darwin-amd64 /usr/local/bin/owl
 chmod +x /usr/local/bin/owl
