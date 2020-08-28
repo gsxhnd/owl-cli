@@ -18,7 +18,7 @@ var (
 )
 var versionCmd = &cli.Command{
 	Name:        "version",
-	Usage:       "",
+	Usage:       "show version",
 	UsageText:   "",
 	Description: "",
 	Action: func(c *cli.Context) error {

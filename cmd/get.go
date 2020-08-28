@@ -8,16 +8,9 @@ import (
 )
 
 var getCmd = &cli.Command{
-	Name:  "get",
-	Usage: "get",
-	Flags: []cli.Flag{
-		&cli.StringFlag{
-			Name:        "endpoint,e",
-			Value:       "http://127.0.0.1:2379",
-			Usage:       "",
-			Destination: &endPoint,
-		},
-	},
+	Name:      "get",
+	Usage:     "get value by key",
+	UsageText: "owl get [key]",
 	Action: func(c *cli.Context) error {
 		var key = c.Args().Get(0)
 		owl.SetAddr([]string{endPoint})

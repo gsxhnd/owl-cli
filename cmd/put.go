@@ -8,16 +8,9 @@ import (
 )
 
 var putCmd = &cli.Command{
-	Name:  "put",
-	Usage: "put",
-	Flags: []cli.Flag{
-		&cli.StringFlag{
-			Name:        "endpoint,e",
-			Value:       "http://127.0.0.1:2379",
-			Usage:       "",
-			Destination: &endPoint,
-		},
-	},
+	Name:      "put",
+	Usage:     "read file then put value",
+	UsageText: "owl put [key] [file_path]",
 	Action: func(c *cli.Context) error {
 		var key = c.Args().Get(0)
 		var filePath = c.Args().Get(1)
