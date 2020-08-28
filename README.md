@@ -1,5 +1,5 @@
 ![LICENSE](https://img.shields.io/github/license/gsxhnd/owl-cli)
-![Release](https://github.com/gsxhnd/owl-cli/workflows/Release/badge.svg?branch=v1.0.0)
+![Release](https://github.com/gsxhnd/owl-cli/workflows/Release/badge.svg?branch=v1.1.0)
 
 ## owl-cli
 
