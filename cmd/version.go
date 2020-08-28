@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
+	"github.com/urfave/cli/v2"
 	"runtime"
 )
 
@@ -16,22 +16,23 @@ var (
 	compiler     = runtime.Compiler
 	platform     = fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH)
 )
-
-var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: `Show version`,
-	Long:  `Show version of owl`,
-	Run: func(cmd *cobra.Command, args []string) {
+var versionCmd = &cli.Command{
+	Name:        "version",
+	Usage:       "show version",
+	UsageText:   "",
+	Description: "",
+	Action: func(c *cli.Context) error {
 		if gitTag == "" {
 			fmt.Println("owl version: ", version)
 		} else {
 			fmt.Println("owl version: ", gitTag)
 		}
 		fmt.Println("owl commit: ", gitCommit)
-		fmt.Println("owl build date: ", gitTreeState)
+		fmt.Println("owl tree state: ", gitTreeState)
 		fmt.Println("owl build date: ", buildDate)
 		fmt.Println("go version: ", goVersion)
 		fmt.Println("go compiler: ", compiler)
 		fmt.Println("platform: ", platform)
+		return nil
 	},
 }

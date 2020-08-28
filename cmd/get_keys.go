@@ -7,16 +7,16 @@ import (
 	"log"
 )
 
-var getCmd = &cli.Command{
-	Name:      "get",
-	Usage:     "get value by key",
-	UsageText: "owl get [key]",
+var getKeysCmd = &cli.Command{
+	Name:      "get_keys",
+	Usage:     "get keys by prefix",
+	UsageText: "owl get_keys [prefix]",
 	Action: func(c *cli.Context) error {
 		var key = c.Args().Get(0)
 		owl.SetAddr([]string{endPoint})
 		owl.SetKey(key)
 
-		v, err := owl.Get()
+		v, err := owl.GetKeys(key)
 		if err != nil {
 			log.Panic(err)
 		}

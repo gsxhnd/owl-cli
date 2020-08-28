@@ -1,27 +1,32 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
+	"github.com/urfave/cli/v2"
 )
 
 var (
 	endPoint string
-	rootCmd  = &cobra.Command{
-		Use:   "owl",
-		Short: "A generator for Cobra based Applications",
-		Long:  `owl is a CLI  applications.`,
-	}
+	RootCmd  = cli.NewApp()
 )
 
-// Execute executes the root command.
-func Execute() {
-	if err := rootCmd.Execute(); err != nil {
-		panic(err)
-	}
-}
-
 func init() {
-	rootCmd.AddCommand(versionCmd)
-	rootCmd.AddCommand(putComd)
-	rootCmd.AddCommand(getCmd)
+
+	RootCmd.Usage = "owl"
+	RootCmd.Version = ""
+	RootCmd.HideVersion = true
+	RootCmd.Flags = []cli.Flag{
+		&cli.StringFlag{
+			Name:        "endpoint",
+			Aliases:     []string{"e"},
+			Value:       "http://127.0.0.1:2379",
+			Usage:       "123",
+			Destination: &endPoint,
+		},
+	}
+	RootCmd.Commands = []*cli.Command{
+		getCmd,
+		getKeysCmd,
+		putCmd,
+		versionCmd,
+	}
 }
