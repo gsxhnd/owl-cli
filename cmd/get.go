@@ -8,15 +8,15 @@ import (
 )
 
 var getCmd = &cli.Command{
-	Name:      "get",
-	Usage:     "get value by key",
-	UsageText: "owl get [key]",
+	Name:        "get",
+	Usage:       "get value by key",
+	UsageText:   "owl get [key]",
+	Description: "the [key] what you want value at the etcd",
 	Action: func(c *cli.Context) error {
 		var key = c.Args().Get(0)
-		owl.SetAddr([]string{endPoint})
-		owl.SetKey(key)
+		owl.SetRemoteAddr([]string{endPoint})
 
-		v, err := owl.Get()
+		v, err := owl.GetRemote(key)
 		if err != nil {
 			log.Panic(err)
 		}

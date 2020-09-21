@@ -19,7 +19,7 @@ func init() {
 			Name:        "endpoint",
 			Aliases:     []string{"e"},
 			Value:       "http://127.0.0.1:2379",
-			Usage:       "123",
+			Usage:       "",
 			Destination: &endPoint,
 		},
 	}

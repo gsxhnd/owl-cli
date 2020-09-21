@@ -6,4 +6,3 @@
 - [doc]: fix download url
 - [feat]: move flag `endpoint` to global flag
 
-## v1.0.0
