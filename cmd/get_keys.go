@@ -13,10 +13,9 @@ var getKeysCmd = &cli.Command{
 	UsageText: "owl get_keys [prefix]",
 	Action: func(c *cli.Context) error {
 		var key = c.Args().Get(0)
-		owl.SetAddr([]string{endPoint})
-		owl.SetKey(key)
+		owl.SetRemoteAddr([]string{endPoint})
 
-		v, err := owl.GetKeys(key)
+		v, err := owl.GetRemoteKeys(key)
 		if err != nil {
 			log.Panic(err)
 		}
